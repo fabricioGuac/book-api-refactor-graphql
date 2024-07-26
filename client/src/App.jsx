@@ -2,7 +2,6 @@ import './App.css';
 
 import {
   ApolloClient,
-  // InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
@@ -33,7 +32,6 @@ const authLink = setContext((_, {headers}) => {
 // Set up the client to execute the authLink middleware
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  // cache: new InMemoryCache,
 })
 
 
