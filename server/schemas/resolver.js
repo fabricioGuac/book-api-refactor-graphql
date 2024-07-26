@@ -5,12 +5,6 @@ const { signToken, AuthError } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-    // get a single user by either their id or their username
-        getSingleUser: async (parent, { id ,username }) => {
-            return  await User.findOne({
-                $or:  [{ _id: id }, { username: username }],
-            });
-        },
     // get the current logged in user
     me: async (parent, args, context) => {
         if (context.user) {
