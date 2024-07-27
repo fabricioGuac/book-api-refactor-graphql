@@ -32,7 +32,7 @@ export const SAVE_BOOK = gql`
             _id
             username
             savedBooks {
-                author
+                authors
                 description
                 title
                 bookId
