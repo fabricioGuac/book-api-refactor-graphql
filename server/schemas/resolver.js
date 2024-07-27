@@ -8,7 +8,7 @@ const resolvers = {
     // get the current logged in user
     me: async (parent, args, context) => {
         if (context.user) {
-            return User.findOne({ _id: context.user._id });
+            return User.findOne({ _id: context.user._id }).populate('savedBooks');
         }
         throw AuthError;
         },
@@ -28,8 +28,8 @@ const resolvers = {
             return {token, user};
         },
     // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
-        login: async (parent, {username ,email, password}) => {
-            const user = await User.findOne({ $or: [{username}, {email}]});
+        login: async (parent, {email, password}) => {
+            const user = await User.findOne({email});
 
             if(!user) {
                 throw AuthError;

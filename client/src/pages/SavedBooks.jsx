@@ -20,14 +20,14 @@ import { removeBookId } from '../utils/localStorage';
 const SavedBooks = () => {
   const {loading, data} = useQuery(GET_ME);
   
-  const userData = data?.me || {};
+  const userData = data?.me || { savedBooks: [] };
 
-  const [removeBook, {error}] = useMutation(REMOVE_BOOK,{
-      refetchQueries: [
-      GET_ME
-    ]
-  }
-  ); 
+  // const [removeBook, {error}] = useMutation(REMOVE_BOOK,{
+  //     refetchQueries: [
+  //     GET_ME
+  //   ]
+  // }
+  // ); 
 
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
@@ -52,7 +52,8 @@ const SavedBooks = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark p-5">
+    {/* fluid */}
+      <div className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>

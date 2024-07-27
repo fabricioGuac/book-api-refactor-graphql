@@ -1,6 +1,6 @@
 const typeDefs = `
     input saveBookInput {
-    author: [String]
+    authors: [String]
     description: String!
     title: String!
     bookId: ID!
@@ -12,13 +12,13 @@ const typeDefs = `
     _id: ID!
     username: String!
     email:String!
-    bookCoount: INT
+    bookCount: Int
     savedBooks: [Book]
     }
 
     type Book {
     bookId: ID
-    author: [String]
+    authors: [String]
     description: String!
     title: String!
     image: String
@@ -31,12 +31,11 @@ const typeDefs = `
     }
 
     type Query {
-    getSingleUser(id: ID!, username: String!): User
     me: User
     }
 
     type Mutation {
-    createUser(username: String!, email: String!, password: String!); Auth
+    createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
     # We could probably use the Book type as input here but let's keep it like this for the moment
