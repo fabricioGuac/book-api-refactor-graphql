@@ -10,6 +10,8 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
+  console.log(Auth.loggedIn());
+
   return (
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
