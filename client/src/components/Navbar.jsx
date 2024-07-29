@@ -10,11 +10,7 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const token = Auth.getToken();
-    console.log('Token from localStorage:', token);
-    console.log('Is logged in:', Auth.loggedIn());
-  }, []);
+
 
   return (
     <>
