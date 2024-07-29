@@ -21,16 +21,20 @@ class AuthService {
     try {
       const decoded = decode(token);
       if (decoded.exp < Date.now() / 1000) {
+        console.log('NOT EXPIRED')
         return true;
       } else return false;
     } catch (err) {
+      console.log('ERROR DECODING THE TOKEN')
       return false;
     }
   }
 
   getToken() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token');
+    const token = localStorage.getItem('id_token');
+    console.log(`TOKEN FROM LOCAL STORAGE ${token}`);
+    return token
   }
 
   login(idToken) {

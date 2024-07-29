@@ -16,7 +16,7 @@ To use the application, sign in or create an account by clicking "Sign In" or "L
 
 ## Screenshot displaying the deployed app
 
-![Screenshot](assets\screeshot.png)
+![Screenshot](./assets/screeshot.png)
 
 ## URL to the deployed app
 
