@@ -20,13 +20,18 @@ class AuthService {
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
-      console.log("DECODED EXPIRARION",decoded.exp)
-      if (decoded.exp < Date.now() / 1000) {
-        console.log('EXPIRED')
+      const now = Date.now() / 1000;
+      console.log(`Token expiration time: ${decoded.exp}`);
+      console.log(`Current time: ${now}`);
+      if (decoded.exp < now) {
+        console.log('EXPIRED');
         return true;
-      } else return false;
+      } else {
+        console.log('NOT EXPIRED');
+        return false;
+      }
     } catch (err) {
-      console.log('ERROR DECODING THE TOKEN')
+      console.log('ERROR DECODING THE TOKEN');
       return false;
     }
   }
